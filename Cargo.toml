@@ -4,11 +4,26 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-actix-web = "4.8.0"
-async-graphql = "7.0.6"
-async-graphql-actix-web = "7.0.6"
+axum = "0.7"
+hyper = "1.4.1"
+sqlx = { version = "0.8", features = ["postgres", "runtime-tokio-native-tls", "macros"] }
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.10", features = ["serde", "v4"] }
+thiserror = "1.0"
 dotenv = "0.15"
-serde = { version = "1.0.203", features = ["derive"] }
-serde_json = "1.0.117"
-tokio = { version = "1.38", features = ["full"] }
-sqlx = { version = "0.7", features = ["postgres", "runtime-tokio", "macros", "migrate"] }
+tower = { version = "0.5", features = ["full"] }
+tower-http = { version = "0.5", features = ["timeout", "trace", "cors"] }
+chrono = { version = "0.4", features = ["serde"] }
+anyhow = "1.0.87"
+validator = "0.18.1"
+config = "0.14"
+colored = "2.1.0"
+rand = "0.8.5"
+fxhash = "0.2"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
