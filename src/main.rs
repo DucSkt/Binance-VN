@@ -11,6 +11,7 @@ use fxhash::FxHasher;
 use sqlx::postgres::PgPoolOptions;
 use std::env;
 use std::hash::{Hash, Hasher};
+
 use std::net::TcpListener;
 use std::sync::Arc;
 use std::time::Duration;
@@ -84,6 +85,6 @@ async fn healthz() -> &'static str {
 async fn handler_404() -> impl IntoResponse {
     (
         StatusCode::NOT_FOUND,
-        Json(ErrorResponse::new("nothing here".to_string())),
+        // Json(ErrorResponse::new("nothing here".to_string())),
     )
 }

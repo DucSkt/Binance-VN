@@ -1,11 +1,9 @@
-use std::hash::Hash;
 #[macro_export]
 macro_rules! clg {
     ($title:expr, $expression:expr) => {{
-        use colored::Color;
+        use colored::{Color, ColoredString, Colorize};
         use fxhash::FxHasher;
         use std::hash::{Hash, Hasher};
-
         // List of colors to choose from
         let colors = vec![
             Color::Red,
