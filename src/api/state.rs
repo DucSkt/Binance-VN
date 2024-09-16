@@ -14,7 +14,7 @@ impl AppState {
             .await
             .expect("Failed to create pool");
         AppState {
-            db_pool: Arc::new(db_pool), // Gói trong Arc
+            db_pool: Arc::new(db_pool),
         }
     }
 }
