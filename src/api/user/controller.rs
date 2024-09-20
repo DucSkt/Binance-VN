@@ -42,6 +42,7 @@ pub async fn list_users(
         Err(err) => Err(AppError::DatabaseError(err)),
     }
 }
+
 pub async fn list_user(
     State(app_state): State<AppState>,
     Path(user_id): Path<i32>,

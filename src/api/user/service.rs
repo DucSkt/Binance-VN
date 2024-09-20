@@ -26,30 +26,26 @@ pub async fn fetch_users(
             cursor,
             limit
         )
-        .fetch_all(&app_state.db_pool)
+        .fetch_all(&*app_state.db_pool)
         .await?;
-
         let next_cursor = users.last().map(|u| u.id);
         Ok((users, None, next_cursor))
     } else {
-        // Offset pagination logic
         let page = params.page.unwrap_or(1);
         let offset = (page - 1) as i64 * limit;
-
         let users = sqlx::query_as!(
             User,
             "SELECT * FROM users ORDER BY id LIMIT $1 OFFSET $2",
             limit,
             offset
         )
-        .fetch_all(&app_state.db_pool)
+        .fetch_all(&*app_state.db_pool)
         .await?;
 
         let total = sqlx::query_scalar::<_, i64>("SELECT COUNT(*) FROM users")
-            .fetch_one(&app_state.db_pool)
+            .fetch_one(&*app_state.db_pool)
             .await?;
-
-        Ok((users, Some(total), None)) // Không cần `next_cursor` cho offset
+        Ok((users, Some(total), None))
     }
 }
 
