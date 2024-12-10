@@ -3,3 +3,4 @@ mod dto;
 mod model;
 pub mod routes;
 mod service;
+mod test;

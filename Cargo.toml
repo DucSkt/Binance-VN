@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 axum = "0.7"
 hyper = "1.4.1"
-sqlx = { version = "0.8", features = ["postgres", "runtime-tokio-native-tls", "macros"] }
+sqlx = { version = "0.8", features = ["postgres", "runtime-tokio-native-tls", "macros", "chrono", "uuid"] }
 tokio = { version = "1", features = ["full"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
@@ -25,7 +25,7 @@ colored = "2.1.0"
 rand = "0.8.5"
 fxhash = "0.2"
 async-trait = "0.1.81"
-
+time = "0.3"
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full"] }

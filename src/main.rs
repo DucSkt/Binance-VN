@@ -10,7 +10,7 @@ use colored::{Color, ColoredString, Colorize};
 use fxhash::FxHasher;
 use sqlx::postgres::PgPoolOptions;
 use std::env;
-use std::hash::{Hash, Hasher};
+// use std::hash::{Hash, Hasher};
 
 use std::net::TcpListener;
 use std::sync::Arc;

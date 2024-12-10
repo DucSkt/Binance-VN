@@ -7,4 +7,6 @@ pub struct CreateUserDto {
     pub name: String,
     #[validate(email(message = "Invalid email format"))]
     pub email: String,
+    #[validate(range(min = 18, max = 100))]
+    pub age: i32,
 }
